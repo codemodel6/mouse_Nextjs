@@ -1,3 +1,4 @@
+import GlobalLayout from "@/components/global-layout";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Link from "next/link";
@@ -31,19 +32,25 @@ export default function App({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <>
-      <header>
-        <Link href={"/"}>index</Link>
-        &nbsp;
-        {/* Link의 기능. 해당 페이지는 프리페칭 하지 않는다 */}
-        <Link href={"/search"} prefetch={false}>
-          saerch
-        </Link>
-        &nbsp;
-        <Link href={"/book/1"}>book/1</Link>
-        <button onClick={handleRouter}>/test 페이지로 이동</button>
-      </header>
+    // <>
+    //   <header>
+    //     <Link href={"/"}>index</Link>
+    //     &nbsp;
+    //     {/* Link의 기능. 해당 페이지는 프리페칭 하지 않는다 */}
+    //     <Link href={"/search"} prefetch={false}>
+    //       saerch
+    //     </Link>
+    //     &nbsp;
+    //     <Link href={"/book/1"}>book/1</Link>
+    //     <button onClick={handleRouter}>/test 페이지로 이동</button>
+    //   </header>
+    //   <main>
+    //     <Component {...pageProps} />
+    //   </main>
+    //   <footer></footer>
+    // </>
+    <GlobalLayout>
       <Component {...pageProps} />
-    </>
+    </GlobalLayout>
   );
 }
